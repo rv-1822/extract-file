@@ -3,44 +3,7 @@
 [![Python](https://img.shields.io/badge/Python-3.x-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/licenses/MIT)
 
-Un script Python puissant pour lister récursivement les fichiers avec des options de formatage personnalisées, idéal pour l'organisation et l'analyse de structures de dossiers.
-
----
-
-## 📋 Table des Matières
-- [Fonctionnalités](#-fonctionnalités)
-- [Prérequis](#-prérequis)
-- [Installation](#-installation)
-- [Utilisation](#-utilisation)
-  - [Options disponibles](#options-disponibles)
-  - [Exemples d'exécution](#exemples-d'exécution)
-- [Exemples de Sortie](#-exemples-de-sortie)
-- [Personnalisation Avancée](#-personnalisation-avancée)
-- [Fonctionnement Interne](#-fonctionnement-interne)
-- [Limitations Connues](#-limitations-connues)
-- [Licence](#-licence)
-- [Contribution](#-contribution)
-- [Historique des Versions](#-historique-des-versions)
-- [FAQ](#-faq)
-
----
-
-## 🌟 Fonctionnalités
-
-✅ **Liste récursive complète** : Parcourt tous les sous-dossiers de manière récursive
-✅ **Filtrage intelligent** :
-   - Par extensions de fichiers (`.txt`, `.pdf`, etc.)
-   - Option "toutes extensions" (`all`)
-✅ **Formatage avancé des noms** :
-   - Remplace automatiquement les ` - ` par ` \ ` dans les noms
-   - Exclut les extensions des noms de fichiers dans la sortie
-✅ **Options de sortie flexibles** :
-   - Avec ou sans chemins complets
-   - Fichier de sortie personnalisable (par défaut sur le bureau)
-✅ **Gestion des erreurs** :
-   - Dossiers inaccessibles
-   - Permissions insuffisantes
-✅ **Interface interactive** : Guide l'utilisateur pas à pas
+Un script Python  pour lister récursivement les fichiers avec des options de formatage personnalisées.
 
 ---
 
@@ -80,7 +43,20 @@ Un script Python puissant pour lister récursivement les fichiers avec des optio
 | **Dossier à scanner** | Chemin du dossier racine | `C:\MesDocuments` ou `"C:\Dossiers\Mon Projet"` |
 | **Extensions** | Filtre par extensions | `all` ou `.txt,.pdf,.jpg` |
 | **Chemins complets** | Inclure les chemins ? | `o` (oui) ou `n` (non) |
+|Format de sortie |(txt/csv)| `txt` ou `csv`|
 
-### Exemples d'Exécution
 
-#### Exemple 1 : Liste complète avec chemins
+## :: Personnalisation
+
+1. **Changer le séparateur**
+   # Ligne ~20 : Modifiez ' \\ ' par votre séparateur
+   nom_modifie = re.sub(r' - ', ' │ ', nom_sans_ext)  # Exemple avec │
+
+2. **Ajouter des colonnes CSV**
+   # Dans la section CSV, ajoutez des colonnes :
+   writer.writerow(["Nom", "Chemin", "Taille", "Date"])
+   # Puis complétez avec :
+   taille = os.path.getsize(os.path.join(racine, fichier))
+   date = os.path.getmtime(os.path.join(racine, fichier))
+   writer.writerow([nom_modifie, os.path.join(racine, nom_modifie), taille, date])
+
