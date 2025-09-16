@@ -46,17 +46,25 @@ Un script Python  pour lister récursivement les fichiers avec des options de fo
 |Format de sortie |(txt/csv)| `txt` ou `csv`|
 
 
-## :: Personnalisation
+## :1F527: Personnalisation
 
 1. **Changer le séparateur**
-   # Ligne ~20 : Modifiez ' \\ ' par votre séparateur
+
+   Ligne ~20 : Modifiez ' \\ ' par votre séparateur
    nom_modifie = re.sub(r' - ', ' │ ', nom_sans_ext)  # Exemple avec │
 
 2. **Ajouter des colonnes CSV**
-   # Dans la section CSV, ajoutez des colonnes :
+
+   * Dans la section CSV, ajoutez des colonnes :
    writer.writerow(["Nom", "Chemin", "Taille", "Date"])
-   # Puis complétez avec :
+   
+   * Puis complétez avec :
+
    taille = os.path.getsize(os.path.join(racine, fichier))
    date = os.path.getmtime(os.path.join(racine, fichier))
    writer.writerow([nom_modifie, os.path.join(racine, nom_modifie), taille, date])
 
+3. **Filtrer par Taille**
+
+   if os.path.getsize(os.path.join(racine, fichier)) < 1024:
+    continue  # Ignore les petits fichiers
