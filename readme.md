@@ -66,7 +66,3 @@ Un script Python  pour lister récursivement les fichiers avec des options de fo
       date = os.path.getmtime(os.path.join(racine, fichier))
       writer.writerow([nom_modifie, os.path.join(racine, nom_modifie), taille, date])
 
-3. **Filtrer par Taille**
-
-   if os.path.getsize(os.path.join(racine, fichier)) < 1024:
-    continue  # Ignore les petits fichiers
