@@ -49,10 +49,10 @@ Un script Python  pour lister récursivement les fichiers avec des options de fo
 <h2>&#9881; Personnalisation</h2>
 
 1. **Changer le séparateur**
+
 Ligne ~20 : Modifiez ' \\ ' par votre séparateur (Exemple avec │ )
 
       nom_modifie = re.sub(r' - ', ' │ ', nom_sans_ext)  
-
 
 2. **Ajouter des colonnes CSV**
 
