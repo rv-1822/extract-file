@@ -46,7 +46,7 @@ Un script Python  pour lister récursivement les fichiers avec des options de fo
 |Format de sortie |(txt/csv)| `txt` ou `csv`|
 
 
-<h2>&#128263; Personnalisation</h2>
+<h2>&#65039; Personnalisation</h2>
 
 1. **Changer le séparateur**
 Ligne ~20 : Modifiez ' \\ ' par votre séparateur
@@ -56,6 +56,7 @@ Ligne ~20 : Modifiez ' \\ ' par votre séparateur
 2. **Ajouter des colonnes CSV**
 
 * Dans la section CSV, ajoutez des colonnes :
+
       writer.writerow(["Nom", "Chemin", "Taille", "Date"])
 
 * Puis complétez avec :
